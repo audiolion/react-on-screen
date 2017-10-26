@@ -14,10 +14,7 @@ const propTypes = {
     }
     return null;
   },
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
-  ]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   style: PropTypes.object,
   className: PropTypes.string,
   offset: PropTypes.number,
@@ -43,7 +40,9 @@ export default class TrackVisibility extends Component {
     this.isComponentVisible = this.isComponentVisible.bind(this);
     /* Store reference to be able to remove the event listener */
     this.throttleCb = throttle(this.isComponentVisible, this.props.throttleInterval);
-    this.setNodeRef = ref => { this.nodeRef = ref; };
+    this.setNodeRef = ref => {
+      this.nodeRef = ref;
+    };
   }
 
   componentDidMount() {
